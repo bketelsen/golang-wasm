@@ -7,7 +7,7 @@ import (
 	"github.com/teamortix/golang-wasm/wasm"
 )
 
-const hello = "Hello!"
+const hello = "Hello from Go WASM!"
 
 // The Golang-WASM API automatically ports calls to this function calls from JavaScript over to call this function.
 // This helps gain a level of type safety that is otherwise not possible when using syscall/js.
