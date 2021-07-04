@@ -21,6 +21,8 @@ module.exports = function (source) {
 
     const parent = path.dirname(this.resourcePath);
     const outFile = this.resourcePath.slice(0, -2) + "wasm";
+       console.log(outFile);
+
     let modDir = parent;
 
     const opts = {
