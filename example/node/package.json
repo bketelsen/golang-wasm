@@ -1,0 +1,17 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "node index.js",
+    "build": "GOROOT=`go env GOROOT` GOOS=js GOARCH=wasm go build -o main.wasm src/api/main.go"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lookpath": "^1.2.1",
+    "webpack": "^5.27.0",
+    "webpack-cli": "^4.5.0"
+  }
+}

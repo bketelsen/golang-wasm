@@ -83,15 +83,7 @@ module.exports = function (source) {
         cb(null,
             `require('!${wasmSavePath}');
 import goWasm from '${path.join(__dirname, 'bridge.js')}';
-var wasm;
-if (typeof window === 'undefined'){
-    const fs = require('fs');
-    var source = fs.readFileSync('${emitPath}');
-    wasm = new Uint8Array(source);
-} else {
-    wasm = fetch('${emitPath}').then(response => response.arrayBuffer());
-}
-
+wasm = fetch('${emitPath}').then(response => response.arrayBuffer());
 export default goWasm(wasm);`);
     })();
 }
