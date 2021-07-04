@@ -78,7 +78,7 @@ module.exports = function (source) {
         fs.unlink(outFile);
 
         const emitPath = path.basename(outFile);
-        this.emitFile(this.outputPath, contents);
+        this.emitFile(emitPath, contents);
 
         cb(null,
             `require('!${wasmSavePath}');
