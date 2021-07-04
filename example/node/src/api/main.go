@@ -5,7 +5,17 @@ import (
 	"fmt"
 
 	"github.com/teamortix/golang-wasm/wasm"
+	"github.com/cueblox/blox"
 )
+
+var bloxRuntime *blox.Runtime
+func init() {
+	var err error
+	bloxRuntime,err = blox.NewRuntime()
+	if err != nil {
+		panic(err)
+	}
+}
 
 const hello = "Hello from Go WASM!"
 
@@ -31,10 +41,12 @@ func divide(x float64, y float64) (float64, error) {
 
 func main() {
 	fmt.Println("golang-wasm initialized")
+	
 
 	wasm.Expose("hello", hello)
 	wasm.Expose("helloName", helloName)
 	wasm.Expose("divide", divide)
+	wasm.Expose("bloxRuntime", bloxRuntime)
 	wasm.Ready()
 	<-make(chan bool) // To use anything from Go WASM, the program may not exit.
 }
